@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="LineSwords"
+<<<<<<< HEAD
 run/main_scene="res://Terrenos/terreno_manager.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+=======
+run/main_scene="res://cenas/terreno.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+>>>>>>> b4171b825d73589fc9956efc6095086adde19232
 config/icon="res://icon.svg"
 
 [display]
@@ -20,6 +25,7 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=768
 
+<<<<<<< HEAD
 [input]
 
 move_left={
@@ -59,6 +65,8 @@ right_attack={
 ]
 }
 
+=======
+>>>>>>> b4171b825d73589fc9956efc6095086adde19232
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
