@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://7x50sfg5h5hl"]
+
+[node name="DecorationComponent" type="Node2D"]
+
+[node name="Textura1" type="Sprite2D" parent="."]
+
+[node name="Textura2" type="Sprite2D" parent="."]
+
+[node name="Textura3" type="Sprite2D" parent="."]
