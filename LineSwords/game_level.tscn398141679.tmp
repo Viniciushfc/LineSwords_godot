@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://ch2uo612nneby"]
+[gd_scene load_steps=16 format=4 uid="uid://ch2uo612nneby"]
 
 [ext_resource type="PackedScene" uid="uid://60p1i6d0n8op" path="res://Terrenos/terreno_manager.tscn" id="1_df5pp"]
 [ext_resource type="PackedScene" uid="uid://76smp11i6r57" path="res://Factions/Knights/Troops/Pawn/Pawn.tscn" id="2_ibsu8"]
@@ -11,11 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dtc4cs6bcm6jr" path="res://Decoration/Pumpkins/pumpkins.tscn" id="7_v7qp1"]
 [ext_resource type="PackedScene" uid="uid://bkmlapiwmh7u1" path="res://Decoration/Rocks/rocks.tscn" id="9_jpbmx"]
 [ext_resource type="PackedScene" uid="uid://42kgo2580v6x" path="res://Decoration/Signs/decoration_sign.tscn" id="10_5d4hl"]
-[ext_resource type="PackedScene" uid="uid://ckkhtxjssrggi" path="res://Interactables/tree.tscn" id="11_dv4fs"]
-[ext_resource type="PackedScene" uid="uid://c8m8y6vksohim" path="res://Interactables/sheep.tscn" id="13_vugdd"]
-[ext_resource type="PackedScene" uid="uid://c4e4glx3jbce0" path="res://Interactables/gold_mine.tscn" id="14_gm1p2"]
-[ext_resource type="PackedScene" uid="uid://ccp2m6grwren2" path="res://Interfaces/hud.tscn" id="15_qsxfn"]
-[ext_resource type="PackedScene" uid="uid://b2teoaaxeuils" path="res://UI/pause_menu.tscn" id="16_anq5l"]
+[ext_resource type="PackedScene" uid="uid://ckkhtxjssrggi" path="res://Resources/Trees/tree.tscn" id="11_dv4fs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibsu8"]
 texture = ExtResource("3_ibsu8")
@@ -687,29 +683,9 @@ position = Vector2(3296, 184)
 [node name="Tree12" parent="Decoration" instance=ExtResource("11_dv4fs")]
 position = Vector2(3392, 456)
 
-[node name="Sheep" parent="Decoration" instance=ExtResource("13_vugdd")]
-position = Vector2(1952, 816)
-
-[node name="Sheep2" parent="Decoration" instance=ExtResource("13_vugdd")]
-position = Vector2(2208, 1064)
-
-[node name="Sheep3" parent="Decoration" instance=ExtResource("13_vugdd")]
-position = Vector2(1584, 816)
-
-[node name="Pawn" parent="Decoration" instance=ExtResource("2_ibsu8")]
-position = Vector2(520, 640)
-platform_on_leave = 0
+[node name="Pawn" parent="." instance=ExtResource("2_ibsu8")]
+position = Vector2(615, 620)
 platform_floor_layers = 4294967295
-
-[node name="GoldMine" parent="Decoration" instance=ExtResource("14_gm1p2")]
-position = Vector2(2736, 904)
-
-[node name="HUD" parent="." instance=ExtResource("15_qsxfn")]
-
-[node name="Modulate" type="CanvasModulate" parent="."]
-color = Color(0.6, 0.6, 0.901961, 1)
-
-[node name="PauseMenu" parent="." instance=ExtResource("16_anq5l")]
 
 [connection signal="body_entered" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_exited"]

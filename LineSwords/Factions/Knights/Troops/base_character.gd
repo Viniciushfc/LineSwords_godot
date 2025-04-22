@@ -8,10 +8,14 @@ var _attack_animation_name: String = ""
 @export var _move_speed: float = 128.0
 @export var _left_attack_name: String = ""
 @export var _right_attack_name: String = ""
+@export var _attack_area_collision: CollisionShape2D
+@export var _min_attack: int = 1
+@export var _max_attack: int = 5
 
 @export_category("Objects")
 @export var _animation: AnimationPlayer
 @export var _sprite2D: Sprite2D
+@export var _dust: CPUParticles2D
 
 
 func _physics_process(_delta: float) -> void:
@@ -23,6 +27,10 @@ func _physics_process(_delta: float) -> void:
 func _move() -> void:
 	var _direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
+	_dust.emitting = false
+	
+	if _direction:
+		_dust.emitting = true
 	velocity = _direction * _move_speed
 	move_and_slide()
 	
@@ -43,9 +51,11 @@ func _attack() -> void:
 func _animate() -> void:
 	if velocity.x > 0:
 		_sprite2D.flip_h = false
+		_attack_area_collision.position.x = 64
 		
 	if velocity.x < 0:
 		_sprite2D.flip_h = true
+		_attack_area_collision.position.x = -64
 		
 	if _can_attack == false:
 		_animation.play(_attack_animation_name)
@@ -57,6 +67,9 @@ func _animate() -> void:
 		
 	_animation.play("Idle")
 	
+
+func has_resource(_item_name: String, _amount: int) -> bool:
+	return true
 
 func _on_animation_finished(_anim_name: StringName) -> void:
 	if _anim_name == "attack_axe" or _anim_name == "attack_hammer":
@@ -77,3 +90,11 @@ func update_collision_layer_mask(_type: String) -> void:
 
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, false)
+
+func _on_attack_area_body_entered(_body: Node2D) -> void:
+	if (
+		_body is PhysicsTree or 
+		_body is Sheep
+		):
+		_body.update_health([_min_attack, _max_attack])
+		

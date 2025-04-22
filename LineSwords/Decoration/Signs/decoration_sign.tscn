@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3yqmpql11g6d" path="res://Decoration/Signs/decoration_sign.gd" id="2_ty7y1"]
 
 [node name="DecorationSign" instance=ExtResource("1_j1826")]
+y_sort_enabled = true
 script = ExtResource("2_ty7y1")
 _textures_list = Array[String](["res://Decoration/Signs/16.png", "res://Decoration/Signs/17.png", "res://Decoration/Signs/18.png"])
 
