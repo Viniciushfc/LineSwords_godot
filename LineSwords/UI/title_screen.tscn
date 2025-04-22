@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqqtmswjvdqpq"]
+[gd_scene load_steps=5 format=3 uid="uid://cqqtmswjvdqpq"]
 
 [ext_resource type="Script" uid="uid://yiifkm32odfg" path="res://UI/title_screen.gd" id="1_5whv5"]
 [ext_resource type="Texture2D" uid="uid://r6fukdn8s3l2" path="res://UI/W7Avuv.png" id="1_coop4"]
 [ext_resource type="Theme" uid="uid://dncsr5ctw7if6" path="res://UI/default_btn.tres" id="2_5whv5"]
+[ext_resource type="AudioStream" uid="uid://behe3spyl1bl1" path="res://Sounds/577489__tyops__mystery-adventure-intro.wav" id="4_816ia"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -60,6 +61,11 @@ text = "Credits"
 layout_mode = 2
 theme = ExtResource("2_5whv5")
 text = "Quit"
+
+[node name="MusicaHome" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_816ia")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/CreditsBtn" to="." method="_on_credits_btn_pressed"]

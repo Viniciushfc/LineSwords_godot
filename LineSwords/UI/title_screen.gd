@@ -1,4 +1,5 @@
 extends Control
+class_name TitleScreen
 
 
 func _on_start_btn_pressed() -> void:

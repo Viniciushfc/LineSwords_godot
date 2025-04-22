@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://ch2uo612nneby"]
+[gd_scene load_steps=22 format=4 uid="uid://ch2uo612nneby"]
 
 [ext_resource type="PackedScene" uid="uid://60p1i6d0n8op" path="res://Terrenos/terreno_manager.tscn" id="1_df5pp"]
 [ext_resource type="PackedScene" uid="uid://76smp11i6r57" path="res://Factions/Knights/Troops/Pawn/Pawn.tscn" id="2_ibsu8"]
@@ -15,7 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://c8m8y6vksohim" path="res://Interactables/sheep.tscn" id="13_vugdd"]
 [ext_resource type="PackedScene" uid="uid://c4e4glx3jbce0" path="res://Interactables/gold_mine.tscn" id="14_gm1p2"]
 [ext_resource type="PackedScene" uid="uid://ccp2m6grwren2" path="res://Interfaces/hud.tscn" id="15_qsxfn"]
+[ext_resource type="PackedScene" uid="uid://dnpsu871ew86e" path="res://Effects/rain.tscn" id="16_3ktkq"]
 [ext_resource type="PackedScene" uid="uid://b2teoaaxeuils" path="res://UI/pause_menu.tscn" id="16_anq5l"]
+[ext_resource type="AudioStream" uid="uid://cpkkcv43fqrlp" path="res://Sounds/161700__xserra__ocean-3.wav" id="18_gyjtv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibsu8"]
 texture = ExtResource("3_ibsu8")
@@ -706,10 +708,18 @@ position = Vector2(2736, 904)
 
 [node name="HUD" parent="." instance=ExtResource("15_qsxfn")]
 
+[node name="Rain" parent="HUD" instance=ExtResource("16_3ktkq")]
+position = Vector2(539, -94)
+
 [node name="Modulate" type="CanvasModulate" parent="."]
 color = Color(0.6, 0.6, 0.901961, 1)
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_anq5l")]
+
+[node name="Waves" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_gyjtv")
+volume_db = -18.0
+autoplay = true
 
 [connection signal="body_entered" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Bridge/BridgeArea" to="Bridge/BridgeArea" method="_on_body_exited"]
